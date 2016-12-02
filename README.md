@@ -9,5 +9,7 @@ Tdf.NET实战之基于RBAC模型的通用企业权限管理
 - 对Lambda表达式的支持；
 
 # 架构图
+
+![](http://images.cnitblog.com/blog/94031/201408/261851438603372.jpg)
 ![分层架构图](http://upload-images.jianshu.io/upload_images/1845730-62b27224e41a9e9b.png)
 
