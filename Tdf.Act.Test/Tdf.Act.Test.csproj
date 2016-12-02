@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5ED88823-0EB1-4673-B5CB-FD80F4EE6628}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Tdf.Act.Test</RootNamespace>
+    <AssemblyName>Tdf.Act.Test</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Autofac">
+      <HintPath>..\packages\Autofac\Autofac.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Iesi.Collections">
+      <HintPath>..\packages\NHibernate\Iesi.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate">
+      <HintPath>..\packages\NHibernate\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Tdf.Act.Application\Tdf.Act.Application.csproj">
+      <Project>{1efaddc6-3da4-4e86-b362-6dbd70215666}</Project>
+      <Name>Tdf.Act.Application</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Tdf.Act.DapperLambda\Tdf.Act.DapperLambda.csproj">
+      <Project>{a1f006f8-afbb-4c6b-99cf-eb28a7a9b5cf}</Project>
+      <Name>Tdf.Act.DapperLambda</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Tdf.Act.Domain\Tdf.Act.Domain.csproj">
+      <Project>{cf4f5dd7-ff2e-4ecd-bcab-c3d6b34b0ffe}</Project>
+      <Name>Tdf.Act.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Tdf.Act.EntityFramework\Tdf.Act.EntityFramework.csproj">
+      <Project>{3ab766f8-a4f6-4143-aa36-815f745411d9}</Project>
+      <Name>Tdf.Act.EntityFramework</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Tdf.Act.SqlSugar\Tdf.Act.SqlSugar.csproj">
+      <Project>{42464d7c-d33e-4017-98ee-5159a74e8fc6}</Project>
+      <Name>Tdf.Act.SqlSugar</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Tdf.Nhb\Tdf.Nhb.csproj">
+      <Project>{92040625-6942-4e7a-8a3e-e62854fb58a2}</Project>
+      <Name>Tdf.Nhb</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Tdf\Tdf.csproj">
+      <Project>{c52dcd2d-753d-4c2d-b30c-45d5c0e87e57}</Project>
+      <Name>Tdf</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Tdf.Act
+namespace Tdf.Domain.Uow
 {
-    public class Class1
+    public interface IUnitOfWork : IDisposable
     {
+        void Commit();
     }
 }
