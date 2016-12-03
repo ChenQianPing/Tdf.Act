@@ -48,7 +48,20 @@
     <Compile Include="Commanding\ICommandBus.cs" />
     <Compile Include="Commanding\ICommandExecutor.cs" />
     <Compile Include="Dependency\ObjectContainer.cs" />
+    <Compile Include="Domain\Entities\Auditing\IAudited.cs" />
+    <Compile Include="Domain\Entities\Auditing\ICreationAudited.cs" />
+    <Compile Include="Domain\Entities\Auditing\IDeletionAudited.cs" />
+    <Compile Include="Domain\Entities\Auditing\IFullAudited.cs" />
+    <Compile Include="Domain\Entities\Auditing\IHasCreationTime.cs" />
+    <Compile Include="Domain\Entities\Auditing\IHasDeletionTime.cs" />
+    <Compile Include="Domain\Entities\Auditing\IHasModificationTime.cs" />
+    <Compile Include="Domain\Entities\Auditing\IModificationAudited.cs" />
     <Compile Include="Domain\Entities\Entity.cs" />
+    <Compile Include="Domain\Entities\IMayHaveTenant.cs" />
+    <Compile Include="Domain\Entities\IMustHaveTenant.cs" />
+    <Compile Include="Domain\Entities\IPassivable.cs" />
+    <Compile Include="Domain\Entities\ISoftDelete.cs" />
+    <Compile Include="Domain\Entities\UseState.cs" />
     <Compile Include="Domain\Repositories\IRepository.cs" />
     <Compile Include="Domain\Uow\IUnitOfWork.cs" />
     <Compile Include="Domain\Uow\UnitOfWorkContext.cs" />
@@ -57,6 +70,7 @@
     <Compile Include="Utils\GuidHelper\RegularGuidGenerator.cs" />
     <Compile Include="Utils\GuidHelper\SequentialGuidGenerator.cs" />
     <Compile Include="Utils\Helper\RegexHelper.cs" />
+    <Compile Include="Utils\Networking\ServiceResult.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Domain\Services\" />

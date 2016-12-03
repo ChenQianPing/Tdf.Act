@@ -29,6 +29,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tdf.Act.SqlSugar", "Tdf.Act
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tdf.Act.DapperLambda", "Tdf.Act.DapperLambda\Tdf.Act.DapperLambda.csproj", "{A1F006F8-AFBB-4C6B-99CF-EB28A7A9B5CF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tdf.Act.WebApi", "Tdf.Act.WebApi\Tdf.Act.WebApi.csproj", "{8386D881-4D2B-4E8F-9CAC-0E9387436FAF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -67,6 +69,10 @@ Global
 		{A1F006F8-AFBB-4C6B-99CF-EB28A7A9B5CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A1F006F8-AFBB-4C6B-99CF-EB28A7A9B5CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A1F006F8-AFBB-4C6B-99CF-EB28A7A9B5CF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8386D881-4D2B-4E8F-9CAC-0E9387436FAF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8386D881-4D2B-4E8F-9CAC-0E9387436FAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8386D881-4D2B-4E8F-9CAC-0E9387436FAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8386D881-4D2B-4E8F-9CAC-0E9387436FAF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -80,5 +86,6 @@ Global
 		{92040625-6942-4E7A-8A3E-E62854FB58A2} = {01F8F09B-CDE7-4D76-9681-33D4762B9166}
 		{42464D7C-D33E-4017-98EE-5159A74E8FC6} = {01F8F09B-CDE7-4D76-9681-33D4762B9166}
 		{A1F006F8-AFBB-4C6B-99CF-EB28A7A9B5CF} = {01F8F09B-CDE7-4D76-9681-33D4762B9166}
+		{8386D881-4D2B-4E8F-9CAC-0E9387436FAF} = {337CC79B-F37A-4DFE-BE08-D91331A44241}
 	EndGlobalSection
 EndGlobal

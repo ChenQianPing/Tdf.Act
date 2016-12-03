@@ -24,8 +24,8 @@ namespace Tdf.Act.Test
             RegisterSugarDependencies();
             //RegisterDapperLambdaDependencies();
 
-            Console.Write("Congratulations, UserId is:" + Register());
-            //Console.Write("Congratulations, UserId is:" + LoginAndChangePwd());
+            //Console.Write("Congratulations, UserId is:" + Register());
+            Console.Write("Congratulations, UserId is:" + LoginAndChangePwd());
             Console.Read();
         }
 
@@ -39,10 +39,19 @@ namespace Tdf.Act.Test
             command.Email = "359960779@qq.com";
             command.Phone = "13312520027";
 
-            new UserAppService(ObjectContainer.Resolve<ICommandBus>()).Register(command);
+            try
+            {
+                new UserAppService(ObjectContainer.Resolve<ICommandBus>()).Register(command);
+                var currentUserId = command.ExecutionResult.GeneratedUserId;
+                return currentUserId;
 
-            var currentUserId = command.ExecutionResult.GeneratedUserId;
-            return currentUserId;
+            }
+            catch (Exception ex)
+            {
+                Console.Write(ex.Message + "\n");
+                return "null";
+            }
+
         }
         #endregion
 
@@ -51,17 +60,18 @@ namespace Tdf.Act.Test
         {
             var loginCommand = new LoginCommand();
             loginCommand.UserName = "Bobby";
-            loginCommand.Password = "654321";
+            loginCommand.Password = "123456";
+
             new UserAppService(ObjectContainer.Resolve<ICommandBus>()).Login(loginCommand);
             var currentUserId = loginCommand.ExecutionResult.UserId;
 
-            var changePwdCommand = new ChangePwdCommand();
-            changePwdCommand.UserId = new Guid(currentUserId);
-            changePwdCommand.OldPwd = "654321";
-            changePwdCommand.NewPwd = "123456";
-            new UserAppService(ObjectContainer.Resolve<ICommandBus>()).ChangePwd(changePwdCommand);
+            //var changePwdCommand = new ChangePwdCommand();
+            //changePwdCommand.UserId = new Guid(currentUserId);
+            //changePwdCommand.OldPwd = "654321";
+            //changePwdCommand.NewPwd = "123456";
+            //new UserAppService(ObjectContainer.Resolve<ICommandBus>()).ChangePwd(changePwdCommand);
 
-            currentUserId = changePwdCommand.ExecutionResult.UserId;
+            //currentUserId = changePwdCommand.ExecutionResult.UserId;
             return currentUserId;
         }
         #endregion
