@@ -1,9 +1,8 @@
 ﻿using System;
-using Tdf.Act.Domain.Entities;
 using Tdf.Act.Domain.Repositories;
 using Tdf.Act.Domain.Services;
 using Tdf.Commanding;
-using Tdf.Domain.Repositories;
+using Tdf.Utils.Excp;
 
 namespace Tdf.Act.Domain.Commands.Executors
 {
@@ -20,14 +19,14 @@ namespace Tdf.Act.Domain.Commands.Executors
         {
             #region 验证传入的Command对象是否合法
             if (String.IsNullOrEmpty(cmd.UserName))
-                throw new ArgumentException("UserName is required.");
+                throw new CustomException(-1, "UserName is required.");
             if (String.IsNullOrEmpty(cmd.Email))
-                throw new ArgumentException("Email is required.");
+                throw new CustomException(-1, "Email is required.");
             if (String.IsNullOrEmpty(cmd.Phone))
-                throw new ArgumentException("Phone is required.");
+                throw new CustomException(-1, "Phone is required.");
 
             if (cmd.Password != cmd.ConfirmPassword)
-                throw new ArgumentException("Password not match.");
+                throw new CustomException(-1, "Password not match.");
 
             // other command validation logics
 

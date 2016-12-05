@@ -13,8 +13,8 @@ namespace Tdf.Act.Domain.Commands
         public string Password { get; set; }
 
         public LoginCommandResult ExecutionResult { get; set; }
-        public LoginCommand()
-        { }
+
+        public LoginCommand() {}
     }
 
     public class LoginCommandResult

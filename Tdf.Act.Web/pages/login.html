@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/css/bootstrap.css" rel="stylesheet" type="text/css" />
+    <link href="/lib/jquery-easyui-1.4.1/themes/gray/easyui.css" rel="stylesheet" type="text/css" />
+    <link href="/lib/jquery-easyui-1.4.1/themes/icon.css" rel="stylesheet" type="text/css" />
+	<meta charset="utf-8" />
+</head>
+<body>
+
+    <script src="/lib/jquery/jquery-1.10.2.min.js"></script>
+    <script src="/lib/jquery/jQuery.extend.js"></script>
+    <script src="/lib/jquery-easyui-1.4.1/jquery.easyui.min.js" type="text/javascript"></script>
+    <script src="/lib/jquery-easyui-1.4.1/locale/easyui-lang-zh_CN.js" type="text/javascript"></script>
+    <script src="/js/boer_util.js"></script>
+    <script>
+        $(document).ready(function () {
+            login();
+        });
+
+        function login() {
+
+            var parameters = {};
+            parameters.UserName = "Bobby";
+            parameters.Password = "123456";
+
+            BoerAjax("/api/ActUser/Login", parameters, "get", function (data) {
+                if (data.Code == 0) {
+                    $.messager.alert('提示', 'Login success！' + 'UserId:' + data.Data, 'info');
+                } else {
+                    $.messager.alert('警告', '错误代码:' + data.Code + ',' + data.Message, 'warning');
+                }
+            });
+        }
+    </script>
+</body>
+</html>

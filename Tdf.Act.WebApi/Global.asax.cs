@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Http;
 using System.Web.Routing;
+using Tdf.WebApi.Filters;
 
 namespace Tdf.Act.WebApi
 {
@@ -13,9 +15,14 @@ namespace Tdf.Act.WebApi
         {
             GlobalConfiguration.Configure(WebApiConfig.Register);
 
-
-            // RegisterDependencies,Note by QP
+            // registerDependencies
             Config.AutofacConfig.RegisterEfDependencies();
+
+            // log4net
+            log4net.Config.XmlConfigurator.ConfigureAndWatch(new FileInfo(Server.MapPath("Config/log4net.config")));
+
+            // exceptionFilter
+            GlobalConfiguration.Configuration.Filters.Add(new ExceptionFilter());
         }
     }
 }

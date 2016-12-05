@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Tdf.Domain.Uow
 {
-    public interface IUnitOfWork : IDisposable
+    public interface IUnitOfWork
     {
         void Commit();
     }

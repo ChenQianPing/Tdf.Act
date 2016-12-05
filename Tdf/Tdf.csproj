@@ -33,8 +33,13 @@
     <Reference Include="Autofac">
       <HintPath>..\packages\Autofac\Autofac.dll</HintPath>
     </Reference>
+    <Reference Include="DotNetZip, Version=1.10.1.0, Culture=neutral, PublicKeyToken=6583c7c814667745, processorArchitecture=MSIL">
+      <HintPath>..\packages\DotNetZip.1.10.1\lib\net20\DotNetZip.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -66,14 +71,19 @@
     <Compile Include="Domain\Uow\IUnitOfWork.cs" />
     <Compile Include="Domain\Uow\UnitOfWorkContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utils\Excp\CustomException.cs" />
     <Compile Include="Utils\GuidHelper\IGuidGenerator.cs" />
     <Compile Include="Utils\GuidHelper\RegularGuidGenerator.cs" />
     <Compile Include="Utils\GuidHelper\SequentialGuidGenerator.cs" />
+    <Compile Include="Utils\Helper\CompressionHelper.cs" />
     <Compile Include="Utils\Helper\RegexHelper.cs" />
     <Compile Include="Utils\Networking\ServiceResult.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Domain\Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

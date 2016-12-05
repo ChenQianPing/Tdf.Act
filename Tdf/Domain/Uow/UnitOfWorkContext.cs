@@ -34,7 +34,6 @@ namespace Tdf.Domain.Uow
         {
             if (_currentUnitOfWork != null)
             {
-                _currentUnitOfWork.Dispose();
                 _currentUnitOfWork = null;
             }
         }

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>ComboBox Actions - jQuery EasyUI Demo</title>
+	<link rel="stylesheet" type="text/css" href="../../themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css" href="../../themes/icon.css">
+	<link rel="stylesheet" type="text/css" href="../demo.css">
+	<script type="text/javascript" src="../../jquery.min.js"></script>
+	<script type="text/javascript" src="../../jquery.easyui.min.js"></script>
+</head>
+<body>
+	<h2>ComboBox</h2>
+	<p>Click the buttons below to perform actions.</p>
+	
+	<div style="margin:20px 0;">
+		<a href="javascript:void(0)" class="easyui-linkbutton" onclick="setvalue()">SetValue</a>
+		<a href="javascript:void(0)" class="easyui-linkbutton" onclick="alert($('#state').combobox('getValue'))">GetValue</a>
+		<a href="javascript:void(0)" class="easyui-linkbutton" onclick="$('#state').combobox('disable')">Disable</a>
+		<a href="javascript:void(0)" class="easyui-linkbutton" onclick="$('#state').combobox('enable')">Enable</a>
+	</div>
+	<script type="text/javascript">
+ 	$(document).ready(function () {
+		  var data = [];
+                
+                    for (var i = 0; i < 8; i++) {
+                        data.push({ "text": "zhi" + i, "id": i });
+                    }
+                    $("#state").combobox("loadData", data);
+});
+		function setvalue(){
+			$.messager.prompt('SetValue','Please input the value(CO,NV,UT,etc):',function(v){
+				if (v){
+					$('#state').combobox('setValue',v);
+				}
+			});
+		}
+	</script>
+	
+	<select id="state" class="easyui-combobox" name="state" style="width:200px;" data-options="valueField:'id', textField:'text', panelHeight:'auto'">
+		
+	</select>
+
+</body>
+</html>

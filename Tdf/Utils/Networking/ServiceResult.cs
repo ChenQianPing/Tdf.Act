@@ -30,6 +30,9 @@ namespace Tdf.Utils.Networking
             set { _data = value; }
         }
 
+        public ServiceResult() { }
+
+
         public ServiceResult(object data)
         {
             _data = data;

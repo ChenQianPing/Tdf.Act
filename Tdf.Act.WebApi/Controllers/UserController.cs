@@ -28,26 +28,14 @@ namespace Tdf.Act.WebApi.Controllers
         {
             _commandBus.Send(command);
         }
-
+          
         [Route("api/ActUser/Login")]
         [HttpGet]
-        public ServiceResult Login(string userName,string password)
+        public ServiceResult Login([FromUri]LoginCommand command)
         {
-            try
-            {
-                var command = new LoginCommand();
-                command.UserName = userName;
-                command.Password = password;
-
-                _commandBus.Send(command);
-                var currentUserId = command.ExecutionResult.UserId;
-                return new ServiceResult(currentUserId);
-            }
-            catch (Exception ex)
-            {
-                return new ServiceResult(-1, ex.Message, null);
-            }
-            
+            _commandBus.Send(command);
+            var currentUserId = command.ExecutionResult.UserId;
+            return new ServiceResult(currentUserId);
         }
 
         [Route("api/ActUser/ChangePwd")]
