@@ -16,8 +16,6 @@ var cookieRefreshToken = 'TdfRefreshToken';
 var cookieUserId = 'TdfUserId';
 var cookieUserName = 'TdfUserName';
 
-var defaultParentId = "41643A10-7D28-4692-94FA-4A427FE22147";
-
 /* ===================================================
  * tdf.cookies.js
  * JS 设置与获取Cookie

@@ -7,6 +7,7 @@ using Tdf.Utils.Networking;
 
 namespace Tdf.Act.WebApi.Controllers
 {
+    [Authorize]
     public class UserController : ApiController
     {
         public ICommandBus _commandBus { get; private set; }
@@ -28,7 +29,12 @@ namespace Tdf.Act.WebApi.Controllers
         {
             _commandBus.Send(command);
         }
-          
+
+        /// <summary>
+        /// 调用示例：api/ActUser/Login?UserName=Bobby&Password=123456&token=
+        /// </summary>
+        /// <param name="command"></param>
+        /// <returns></returns>
         [Route("api/ActUser/Login")]
         [HttpGet]
         public ServiceResult Login([FromUri]LoginCommand command)

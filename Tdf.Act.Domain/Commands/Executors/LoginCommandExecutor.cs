@@ -6,21 +6,22 @@ namespace Tdf.Act.Domain.Commands.Executors
 {
     public class LoginCommandExecutor : ICommandExecutor<LoginCommand>
     {
-        public IUserRepository _repository;
+        public IUserRepository _userRepository;
 
-        public LoginCommandExecutor(IUserRepository repository)
+        public LoginCommandExecutor(IUserRepository userRepository)
         {
-            _repository = repository;
+            _userRepository = userRepository;
         }
 
         public void Execute(LoginCommand cmd)
         {
-            var service = new UserService(_repository);
+            var service = new UserService(_userRepository);
             var user = service.Login(cmd.UserName, cmd.Password);
 
             cmd.ExecutionResult = new LoginCommandResult
             {
-                UserId = user.Id.ToString()
+                UserId = user.Id.ToString(),
+                UserName = user.UserName.ToString()
             };
         }
     }

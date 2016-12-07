@@ -20,5 +20,6 @@ namespace Tdf.Act.Domain.Commands
     public class LoginCommandResult
     {
         public string UserId { get; set; }
+        public string UserName { get; set; }
     }
 }

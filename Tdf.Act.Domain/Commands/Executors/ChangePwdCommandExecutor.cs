@@ -6,17 +6,16 @@ namespace Tdf.Act.Domain.Commands.Executors
 {
     public class ChangePwdCommandExecutor : ICommandExecutor<ChangePwdCommand>
     {
+        public IUserRepository _userRepository;
 
-        public IUserRepository _repository;
-
-        public ChangePwdCommandExecutor(IUserRepository repository)
+        public ChangePwdCommandExecutor(IUserRepository userRepository)
         {
-            _repository = repository;
+            _userRepository = userRepository;
         }
 
         public void Execute(ChangePwdCommand cmd)
         {
-            var service = new UserService(_repository);
+            var service = new UserService(_userRepository);
             var user = service.ChangePwd(cmd.UserId, cmd.OldPwd, cmd.NewPwd);
 
             cmd.ExecutionResult = new ChangePwdCommandResult

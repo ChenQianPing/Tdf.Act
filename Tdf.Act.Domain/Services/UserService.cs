@@ -1,15 +1,15 @@
 ﻿using System;
 using Tdf.Act.Domain.Entities;
-using Tdf.Domain.Repositories;
+using Tdf.Act.Domain.Repositories;
 using Tdf.Utils.Excp;
 
 namespace Tdf.Act.Domain.Services
 {
     public class UserService
     {
-        private IRepository<User> _userRepository;
+        private IUserRepository _userRepository;
 
-        public UserService(IRepository<User> userRepository)
+        public UserService(IUserRepository userRepository)
         {
             _userRepository = userRepository;
         }

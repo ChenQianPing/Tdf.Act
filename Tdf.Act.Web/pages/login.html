@@ -23,15 +23,37 @@
 
         function login() {
 
-            var parameters = {};
-            parameters.UserName = "Bobby";
-            parameters.Password = "123456";
+            var parameters = {
+                grant_type: 'password',
+                userName: 'Bobby',
+                password: '123456'
+            };
 
-            BoerAjax("/api/ActUser/Login", parameters, "get", function (data) {
-                if (data.Code == 0) {
-                    $.messager.alert('提示', 'Login success！' + 'UserId:' + data.Data, 'info');
-                } else {
-                    $.messager.alert('警告', '错误代码:' + data.Code + ',' + data.Message, 'warning');
+            $.ajax({
+                type: "post",
+                cache: false,
+                dataType: "json",
+                url: WebApiAdress + '/token',
+                data: parameters,
+                beforeSend: function () {
+                    $.messager.progress();
+                },
+                success: function (data) {
+                    $.tmCookie.setCookie(cookieAccessToken, data.access_token, "d1");
+                    $.tmCookie.setCookie(cookieRefreshToken, data.refresh_token, "d1");
+                    $.tmCookie.setCookie(cookieUserId, data.user_id, "d1");
+                    $.tmCookie.setCookie(cookieUserName, data.user_name, "d1");
+                    $.messager.alert('提示', '登录成功！', 'info');
+                },
+                complete: function () {
+                    $.messager.progress('close');
+                },
+                error: function (xmlHttpRequest, textStatus, errorThrown) {
+                    $("#txtPassword").val('');
+                    if (xmlHttpRequest.status == 400 && JSON.parse(xmlHttpRequest.responseText).error == "invalid_grant") {
+                        $.messager.alert('警告', '用户名或密码错误！', 'info');
+                    } else
+                        $.messager.alert('警告', '网络错误！', 'info');
                 }
             });
         }

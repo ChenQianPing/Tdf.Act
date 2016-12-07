@@ -33,6 +33,7 @@ namespace Tdf.Act.WebApi.Config
 
                 //x.RegisterGeneric(typeof(RepositoryBase<>)).As(typeof(IRepository<>));
                 x.RegisterType<EntityFramework.Repositories.UserRepository>().As<IUserRepository>();
+                x.RegisterType<EntityFramework.Repositories.RefreshTokenRepository>().As<IRefreshTokenRepository>();
 
                 x.RegisterType<DefaultCommandBus>().As<ICommandBus>().SingleInstance();
 

@@ -143,11 +143,15 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Providers\TdfAuthorizationServerProvider.cs" />
+    <Compile Include="Providers\TdfOAuthBearerProvider.cs" />
+    <Compile Include="Providers\TdfRefreshTokenProvider.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
     <Content Include="Config\Connection.config" />
     <Content Include="Config\log4net.config" />
+    <Content Include="Config\AppSettings.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

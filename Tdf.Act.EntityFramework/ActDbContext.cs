@@ -23,6 +23,7 @@ namespace Tdf.Act.EntityFramework
         #region Property
 
         public virtual IDbSet<User> Users { get; set; }
+        public virtual IDbSet<RefreshToken> RefreshTokens { get; set; }
 
         #endregion
 
@@ -34,6 +35,7 @@ namespace Tdf.Act.EntityFramework
             #region Mapping
 
             modelBuilder.Configurations.Add(new UserMap());
+            modelBuilder.Configurations.Add(new RefreshTokenMap());
 
             #endregion
         }

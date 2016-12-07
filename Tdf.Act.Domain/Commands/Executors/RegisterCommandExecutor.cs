@@ -8,11 +8,11 @@ namespace Tdf.Act.Domain.Commands.Executors
 {
     public class RegisterCommandExecutor : ICommandExecutor<RegisterCommand>
     {
-        public IUserRepository _repository;
+        public IUserRepository _userRepository;
 
-        public RegisterCommandExecutor(IUserRepository repository)
+        public RegisterCommandExecutor(IUserRepository userRepository)
         {
-            _repository = repository;
+            _userRepository = userRepository;
         }
 
         public void Execute(RegisterCommand cmd)
@@ -33,7 +33,7 @@ namespace Tdf.Act.Domain.Commands.Executors
             #endregion
 
             #region 调用领域模型完成操作
-            var service = new UserService(_repository);
+            var service = new UserService(_userRepository);
             var user = service.Register(cmd.UserName, cmd.Password, cmd.Phone, cmd.Email);
 
             cmd.ExecutionResult = new RegisterCommandResult
