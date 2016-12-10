@@ -19,7 +19,7 @@ namespace Tdf.WebApi.Filters
             if (exception != null)
             {
                 CustomException ex = exception;
-                context.Response = context.Request.CreateResponse(HttpStatusCode.OK, new ServiceResult() { Code = ex.ErrCode, Message = ex.Message });
+                context.Response = context.Request.CreateResponse(HttpStatusCode.OK, new ServiceResult() { retCode = ex.ErrCode, msg = ex.Message });
             }
             else
             {

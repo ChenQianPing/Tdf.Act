@@ -8,48 +8,57 @@ namespace Tdf.Utils.Networking
 {
     public class ServiceResult
     {
-        private int _code = 0;
-        private string _message = "请求成功";
-        private object _data = "";
+        private int _retCode = 0;
+        private string _msg = "success";
+        private object _result = "";
 
-        public int Code
+        /// <summary>
+        /// 返回码
+        /// </summary>
+        public int retCode
         {
-            get { return _code; }
-            set { _code = value; }
+            get { return _retCode; }
+            set { _retCode = value; }
         }
 
-        public string Message
+        /// <summary>
+        /// 返回说明
+        /// </summary>
+        public string msg
         {
-            get { return _message; }
-            set { _message = value; }
+            get { return _msg; }
+            set { _msg = value; }
         }
 
-        public object Data
+        /// <summary>
+        /// 返回结果集
+        /// </summary>
+        public object result
         {
-            get { return _data; }
-            set { _data = value; }
+            get { return _result; }
+            set { _result = value; }
         }
 
         public ServiceResult() { }
 
 
-        public ServiceResult(object data)
+        public ServiceResult(object result)
         {
-            _data = data;
+            _result = result;
         }
 
-        public ServiceResult(string message, object data)
+        public ServiceResult(string msg, object result)
         {
-            _code = 0;
-            _message = message;
-            _data = data;
+            _retCode = 0;
+            _msg = msg;
+            _result = result;
         }
 
-        public ServiceResult(int code, string message, object data)
+        public ServiceResult(int retCode, string msg, object result)
         {
-            _code = code;
-            _message = message;
-            _data = data;
+            _retCode = retCode;
+            _msg = msg;
+            _result = result;
         }
 
     }
